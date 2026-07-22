@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Türkiye Ultra Kültür & Teknoloji Portalı</title>
-    <!-- Modern Fontlar -->
+    <title>Türkiye Mega Keşif & Kültür Portalı</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome İkonları -->
+    <!-- FontAwesome İkon Seti -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <style>
@@ -26,7 +26,7 @@
 
         /* Hero Banner */
         .hero {
-            min-height: 80vh;
+            min-height: 85vh;
             background: linear-gradient(180deg, rgba(3, 7, 18, 0.4) 0%, rgba(3, 7, 18, 1) 100%), 
                         url('https://images.unsplash.com/photo-1527838832700-5059252407fa?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
             display: flex;
@@ -64,14 +64,14 @@
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: #9ca3af;
-            max-width: 800px;
+            max-width: 850px;
             line-height: 1.6;
             font-weight: 300;
         }
 
-        /* YENİ KÜÇÜK VE SIKIŞTIRILMIŞ MENÜ (ÇENTİK PROBLEMİNİ ÇÖZEN KISIM) */
+        /* İnce Kaydırılabilir Menü */
         nav {
             background: rgba(17, 24, 39, 0.95);
             backdrop-filter: blur(20px);
@@ -84,19 +84,13 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             position: sticky;
             top: 0;
-            overflow-x: auto; /* Yatay kaydırma */
+            overflow-x: auto;
             white-space: nowrap;
             -webkit-overflow-scrolling: touch;
         }
 
-        /* Kaydırma çubuğunu gizle ama kaydırmaya izin ver */
-        nav::-webkit-scrollbar {
-            display: none;
-        }
-        nav {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+        nav::-webkit-scrollbar { display: none; }
+        nav { -ms-overflow-style: none; scrollbar-width: none; }
 
         nav a {
             color: #9ca3af;
@@ -106,9 +100,9 @@
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            padding: 0.4rem 0.8rem; /* Boyutlar küçültüldü */
+            padding: 0.49rem 0.9rem;
             border-radius: 20px;
-            font-size: 0.82rem; /* Yazı boyutu ufaltıldı */
+            font-size: 0.82rem;
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.05);
             flex-shrink: 0;
@@ -120,7 +114,7 @@
             border-color: rgba(244, 63, 94, 0.5);
         }
 
-        /* Ana İçerik Konteyneri */
+        /* Container */
         .container {
             max-width: 1400px;
             margin: 2.5rem auto;
@@ -133,7 +127,7 @@
         }
 
         .section-header h2 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 800;
             color: #f9fafb;
         }
@@ -215,9 +209,7 @@
             gap: 0.6rem;
         }
 
-        .card-body h3 i {
-            color: #f43f5e;
-        }
+        .card-body h3 i { color: #f43f5e; }
 
         .card-body p {
             color: #9ca3af;
@@ -238,7 +230,6 @@
             font-weight: 600;
         }
 
-        /* Animasyonlar */
         @keyframes pulseGlow {
             0% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.2); }
             100% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.5); }
@@ -269,41 +260,73 @@
 </head>
 <body>
 
-    <!-- Hero Alanı -->
+    <!-- Hero -->
     <div class="hero">
-        <span class="hero-badge"><i class="fa-solid fa-fire"></i> ULTRA KAPSAMLI REHBER</span>
-        <h1>TÜRKİYE & TEKNOLOJİ PORTALI</h1>
-        <p>Kız Kulesi'nin eşsiz Boğaz manzarasından ileri otomotiv teknolojilerine, gaming donanımlarından ahşap zanaatına kadar her şey bu portalda!</p>
+        <span class="hero-badge"><i class="fa-solid fa-star"></i> DEVASE TÜRKİYE ANSİKLOPEDİSİ</span>
+        <h1>TÜRKİYE MEGA KEŞİF PORTALI</h1>
+        <p>Süper Lig coşkusundan yerli icatlara, zengin Türk mutfağından marangozluk zanaatına ve tarihi güzelliklere kadar her şey bu portalda!</p>
     </div>
 
-    <!-- Yatay Kaydırılabilir Kibar Menü -->
+    <!-- Hızlı Gezinme Menüsü -->
     <nav>
-        <a href="#kizkulesi"><i class="fa-solid fa-landmark"></i> Kız Kulesi</a>
-        <a href="#araclar"><i class="fa-solid fa-car"></i> Otomotiv & Araçlar</a>
-        <a href="#elektronik"><i class="fa-solid fa-gamepad"></i> Gaming & Donanım</a>
-        <a href="#marangozluk"><i class="fa-solid fa-hammer"></i> Marangozluk</a>
-        <a href="#yemek"><i class="fa-solid fa-utensils"></i> Gastronomi</a>
-        <a href="#kiyafet"><i class="fa-solid fa-shirt"></i> Giyim Kültürü</a>
+        <a href="#futbol"><i class="fa-solid fa-futbol"></i> Süper Lig & Futbol</a>
+        <a href="#icatlar"><i class="fa-solid fa-rocket"></i> Yerli İcatlar & Teknoloji</a>
+        <a href="#kizkulesi"><i class="fa-solid fa-landmark"></i> Kız Kulesi & Simgeler</a>
+        <a href="#yemek"><i class="fa-solid fa-utensils"></i> Türk Mutfağı</a>
+        <a href="#yazilim"><i class="fa-solid fa-code"></i> Oyun & Yazılım</a>
+        <a href="#marangozluk"><i class="fa-solid fa-hammer"></i> Marangozluk Zanaatı</a>
+        <a href="#gezi"><i class="fa-solid fa-compass"></i> Gezi & Rotalar</a>
     </nav>
 
-    <!-- Ana Konteyner -->
     <div class="container">
         <div class="section-header">
-            <h2>Genişletilmiş Konular & Rehber</h2>
-            <p>Seçtiğin kategoriye tıklayarak hızlıca inceleyebilirsin</p>
+            <h2>Türkiye'nin Tüm Renkleri & Değerleri</h2>
+            <p>Hangi konuyu merak ediyorsan üzerine tıkla ve keşfet</p>
         </div>
 
         <div class="grid">
 
-            <!-- 1. KIZ KULESİ -->
-            <div id="kizkulesi" class="card">
+            <!-- 1. TRENDYOL SÜPER LİG & FUTBOL KÜLTÜRÜ -->
+            <div id="futbol" class="card">
                 <div class="card-img-wrapper">
-                    <span class="tag">İSTANBUL SİMGESİ</span>
-                    <img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=1000&q=80" alt="Kız Kulesi ve Boğaz">
+                    <span class="tag">SPOR KÜLTÜRÜ</span>
+                    <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1000&q=80" alt="Futbol Stadyumu">
                 </div>
                 <div class="card-body">
-                    <h3><i class="fa-solid fa-landmark"></i> Kız Kulesi & Tarihi Yapılar</h3>
-                    <p>İstanbul Boğazı'nın incisi olan Kız Kulesi, M.Ö. 5. yüzyıldan bu yana deniz ticaretini kontrol etmekten fener yapısına kadar pek çok amaca hizmet etmiştir. Hakkındaki efsaneler ve gün batımı manzarasıyla ikonik bir simgedir.</p>
+                    <h3><i class="fa-solid fa-trophy"></i> Trendyol Süper Lig & Futbol Tutkusu</h3>
+                    <p>Türkiye'de futbol sadece bir spor değil, devasa bir tutkudur. Beşiktaş'ın Dolmabahçe'deki coşkulu taraftarı, ligin taktik savaşları ve stadyum atmosferleri futbolu ülkemizin en büyük eğlence kültürlerinden biri haline getiriyor.</p>
+                    <div class="card-footer">
+                        <span><i class="fa-solid fa-shield-halved"></i> Şampiyonluk Mücadelesi</span>
+                        <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. YERLİ İCATLAR VE MİLLİ TEKNOLOJİ -->
+            <div id="icatlar" class="card">
+                <div class="card-img-wrapper">
+                    <span class="tag">MİLLİ TEKNOLOJİ</span>
+                    <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1000&q=80" alt="TOGG ve Elektrikli Araçlar">
+                </div>
+                <div class="card-body">
+                    <h3><i class="fa-solid fa-rocket"></i> Yerli İcatlar & Mühendislik</h3>
+                    <p>Türkiye, Milli Teknoloji Hamlesi ile mühendislik alanında dev adımlar atıyor. Yerli otomobil TOGG, hava savunma ve İHA/SİHA teknolojileri, uydular ve yerli sanayi projeleri Türkiye'nin teknoloji üreten vizyonunu gösteriyor.</p>
+                    <div class="card-footer">
+                        <span><i class="fa-solid fa-microchip"></i> TOGG, İHA & Sanayi</span>
+                        <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. KIZ KULESİ VE İSTANBUL SİMGELERİ -->
+            <div id="kizkulesi" class="card">
+                <div class="card-img-wrapper">
+                    <span class="tag">TARİHİ MİRAS</span>
+                    <img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=1000&q=80" alt="Kız Kulesi">
+                </div>
+                <div class="card-body">
+                    <h3><i class="fa-solid fa-landmark"></i> Kız Kulesi & İstanbul Simgeleri</h3>
+                    <p>İstanbul Boğazı'nın tam ortasında yükselen Kız Kulesi, Galata Kulesi, Ayasofya ve Boğaz Köprüleri ile Türkiye'nin en ikonik noktalarından biridir. Yüzyıllardır süren hikayeleriyle ziyaretçilerini büyüler.</p>
                     <div class="card-footer">
                         <span><i class="fa-solid fa-location-dot"></i> İstanbul, Üsküdar</span>
                         <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
@@ -311,81 +334,65 @@
                 </div>
             </div>
 
-            <!-- 2. OTOMOTİV -->
-            <div id="araclar" class="card">
+            <!-- 4. TÜRK MUTFAĞI VE GASTRONOMİ -->
+            <div id="yemek" class="card">
                 <div class="card-img-wrapper">
-                    <span class="tag">TEKNOLOJİ & MÜHENDİSLİK</span>
-                    <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1000&q=80" alt="Elektrikli Araç Teknolojisi">
+                    <span class="tag">GASTRONOMİ</span>
+                    <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1000&q=80" alt="Türk Yemekleri">
                 </div>
                 <div class="card-body">
-                    <h3><i class="fa-solid fa-car"></i> Otomotiv & Araç Dünyası</h3>
-                    <p>Türkiye, yerli elektrikli otomobili TOGG başta olmak üzere küresel otomotiv üretim merkezlerinden biridir. Yeni nesil batarya teknolojileri ve otonom sürüş sistemleri ulaşımın geleceğini şekillendiriyor.</p>
+                    <h3><i class="fa-solid fa-utensils"></i> Türk Mutfağı & Eşsiz Lezzetler</h3>
+                    <p>Mantıdan yaprak sarmasına, taş fırın pidelerinden odun ateşinde pişen kebabına, Fıstıklı Antep Baklavası ve demli çaya kadar Türk mutfağı dünyanın en zengin gastronomi kültürlerinden biridir.</p>
                     <div class="card-footer">
-                        <span><i class="fa-solid fa-charging-station"></i> Elektrikli & Otonom</span>
+                        <span><i class="fa-solid fa-bowl-food"></i> Zengin Mutfak Mirası</span>
                         <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
                     </div>
                 </div>
             </div>
 
-            <!-- 3. ELEKTRONİK -->
-            <div id="elektronik" class="card">
+            <!-- 5. YERLİ OYUN & YAZILIM SEKTÖRÜ -->
+            <div id="yazilim" class="card">
                 <div class="card-img-wrapper">
-                    <span class="tag">DONANIM & GAMING</span>
-                    <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1000&q=80" alt="Elektronik Donanım ve Konsol">
+                    <span class="tag">YAZILIM & GAMING</span>
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80" alt="Yazılım ve Oyun Geliştirme">
                 </div>
                 <div class="card-body">
-                    <h3><i class="fa-solid fa-microchip"></i> Elektronik & Oyun Konsolları</h3>
-                    <p>Gelişmiş grafik işlemciler (GPU), yüksek hızlı NVMe SSD depolama çözümleri ve 4K 120 FPS destekleyen yeni nesil oyun konsolları (PlayStation 5 vb.); dijital oyun ve kodlama deneyimini üst seviyeye çıkarıyor.</p>
+                    <h3><i class="fa-solid fa-code"></i> Yerli Oyun Stüdyoları & Yazılım</h3>
+                    <p>TaleWorlds'ün Mount & Blade başarısı, milyarlarca indirilen yerli mobil oyun stüdyoları ve bağımsız (indie) geliştiriciler ile Türkiye, küresel oyun yazılımı pazarının en hızlı büyüyen aktörlerinden biridir.</p>
                     <div class="card-footer">
-                        <span><i class="fa-solid fa-tv"></i> 4K HDR & Donanım</span>
+                        <span><i class="fa-solid fa-gamepad"></i> Mount & Blade & Indie Oyunlar</span>
                         <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
                     </div>
                 </div>
             </div>
 
-            <!-- 4. MARANGOZLUK -->
+            <!-- 6. AHŞAP ZANAATI VE MARANGOZLUK -->
             <div id="marangozluk" class="card">
                 <div class="card-img-wrapper">
-                    <span class="tag">ZANAAT & AHŞAP</span>
+                    <span class="tag">EL ZANAATLARI</span>
                     <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1000&q=80" alt="Marangozluk Zanaatı">
                 </div>
                 <div class="card-body">
                     <h3><i class="fa-solid fa-hammer"></i> Ahşap & Marangozluk Sanatı</h3>
-                    <p>Ceviz, meşe ve gürgen ağaçlarının işlenmesiyle yapılan geleneksel marangozluk; çivi kullanılmadan birleştirilen "Kündekari" tekniğinden el yapımı ahşap stant ve mobilya tasarımlarına kadar uzanır.</p>
+                    <p>Anadolu'da yüzyıllardır süregelen "Kündekari" geçme ahşap tekniği, el yapımı masif mobilyalar ve ahşap oymacılığı zanaatın sabırla ve ustalıkla birleştiği harika bir gelenektir.</p>
                     <div class="card-footer">
-                        <span><i class="fa-solid fa-tree"></i> El İşçiliği</span>
+                        <span><i class="fa-solid fa-tree"></i> Ahşap Oymacılığı</span>
                         <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
                     </div>
                 </div>
             </div>
 
-            <!-- 5. GASTRONOMİ -->
-            <div id="yemek" class="card">
+            <!-- 7. GEZİ ROTALARI & DOĞA GÜZELLİKLERİ -->
+            <div id="gezi" class="card">
                 <div class="card-img-wrapper">
-                    <span class="tag">GASTRONOMİ</span>
-                    <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1000&q=80" alt="Türk Mutfağı">
+                    <span class="tag">GEZİ & DOĞA</span>
+                    <img src="https://images.unsplash.com/photo-1641128324972-af3212f0f6bd?auto=format&fit=crop&w=1000&q=80" alt="Kapadokya Balonlar">
                 </div>
                 <div class="card-body">
-                    <h3><i class="fa-solid fa-utensils"></i> Türk Mutfağı & Tatlar</h3>
-                    <p>Doğu ile Batı lezzetlerinin birleşimi olan Türk mutfağı; odun ateşinde ağır ağır pişen zengin kebap çeşitleri, taş fırın pidelere ve Antep fıstıklı baklavalara kadar eşsiz bir lezzet mirası sunar.</p>
+                    <h3><i class="fa-solid fa-compass"></i> Doğa Harikaları & Tarihi Rotalar</h3>
+                    <p>Kapadokya'nın masalsı balon uçuşları, Pamukkale travertenleri, Karadeniz yaylaları ve Efes Antik Kenti ile Türkiye doğa sevenler ve gezginler için tükenmez bir hazinedir.</p>
                     <div class="card-footer">
-                        <span><i class="fa-solid fa-bowl-food"></i> Zengin Mutfak</span>
-                        <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 6. GELENEKSEL GIYIM -->
-            <div id="kiyafet" class="card">
-                <div class="card-img-wrapper">
-                    <span class="tag">KÜLTÜR & TEKSTİL</span>
-                    <img src="https://images.unsplash.com/photo-1606744837616-56c9a5c6a6eb?auto=format&fit=crop&w=1000&q=80" alt="Geleneksel Dokumalar">
-                </div>
-                <div class="card-body">
-                    <h3><i class="fa-solid fa-shirt"></i> Geleneksel Giyim & Motifler</h3>
-                    <p>Efe kostümlerinden Karadeniz keşan dokumalarına, elde işlenmiş bindallılardan köklü Hereke halılarına kadar Anadolu dokuma sanatı; üzerindeki geometrik motiflerle asırlık kültürü yansıtır.</p>
-                    <div class="card-footer">
-                        <span><i class="fa-solid fa-scissors"></i> Motif & Dokuma</span>
+                        <span><i class="fa-solid fa-map"></i> Kapadokya, Efes & Yaylalar</span>
                         <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
                     </div>
                 </div>
@@ -394,11 +401,10 @@
         </div>
     </div>
 
-    <!-- Alt Bilgi -->
     <footer>
-        <p>&copy; 2026 Türkiye Ultra Kültür & Teknoloji Portalı</p>
+        <p>&copy; 2026 Türkiye Mega Keşif & Kültür Portalı — Tüm Hakları Saklıdır.</p>
     </footer>
 
 </body>
-                    </html>
-                    
+    </html>
+                        
