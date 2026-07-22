@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Türkiye Kültür & Keşif Portalı</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Türkiye Ultra Kültür & Teknoloji Portalı</title>
+    <!-- Modern Fontlar -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome İkonları -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
@@ -19,83 +19,66 @@
         }
 
         body {
-            background-color: #080c14;
-            color: #e2e8f0;
+            background-color: #030712;
+            color: #f3f4f6;
             overflow-x: hidden;
-            position: relative;
         }
 
-        /* Arka Plan Parçacık Animasyonu Efekti */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(255, 65, 108, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 40%);
-        }
-
-        /* Hero Banner */
+        /* Hero Banner - Özel Görsel ve Hareketli Arka Plan */
         .hero {
-            height: 90vh;
-            background: linear-gradient(180deg, rgba(8, 12, 20, 0.3) 0%, rgba(8, 12, 20, 1) 100%), 
-                        url('https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+            min-height: 95vh;
+            background: linear-gradient(180deg, rgba(3, 7, 18, 0.4) 0%, rgba(3, 7, 18, 1) 100%), 
+                        url('https://images.unsplash.com/photo-1527838832700-5059252407fa?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 1.5rem;
+            padding: 2rem 1.5rem;
             position: relative;
-            z-index: 1;
         }
 
-        .badge {
-            background: rgba(255, 65, 108, 0.15);
-            border: 1px solid rgba(255, 65, 108, 0.4);
-            color: #ff416c;
-            padding: 0.5rem 1.5rem;
+        .hero-badge {
+            background: linear-gradient(90deg, rgba(239, 68, 68, 0.2), rgba(59, 130, 246, 0.2));
+            border: 1px solid rgba(239, 68, 68, 0.5);
+            color: #f87171;
+            padding: 0.6rem 1.8rem;
             border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
             letter-spacing: 2px;
-            animation: pulse 2s infinite;
+            animation: pulseGlow 3s infinite alternate;
         }
 
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: 5rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #ffffff 0%, #ff416c 50%, #3b82f6 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f43f5e 50%, #3b82f6 100%);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradientMove 4s linear infinite;
+            animation: textGradient 5s ease infinite;
             margin-bottom: 1.5rem;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+            line-height: 1.1;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            color: #94a3b8;
-            max-width: 850px;
+            font-size: 1.35rem;
+            color: #9ca3af;
+            max-width: 900px;
             line-height: 1.8;
             font-weight: 300;
         }
 
         /* Navigasyon Barı */
         nav {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(20px);
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(25px);
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            padding: 1rem;
+            gap: 1.2rem;
+            padding: 1.2rem;
             z-index: 100;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             position: sticky;
@@ -104,31 +87,31 @@
         }
 
         nav a {
-            color: #94a3b8;
+            color: #9ca3af;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
             padding: 0.6rem 1.2rem;
-            border-radius: 12px;
+            border-radius: 14px;
             font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.02);
         }
 
         nav a:hover {
             color: #ffffff;
-            background: rgba(255, 65, 108, 0.2);
-            transform: translateY(-2px);
+            background: rgba(244, 63, 94, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(244, 63, 94, 0.3);
         }
 
-        /* İçerik Alanı */
+        /* Ana İçerik Konteyneri */
         .container {
-            max-width: 1300px;
-            margin: 4rem auto;
+            max-width: 1400px;
+            margin: 5rem auto;
             padding: 0 1.5rem;
-            position: relative;
-            z-index: 1;
         }
 
         .section-header {
@@ -137,45 +120,45 @@
         }
 
         .section-header h2 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 800;
-            color: #f8fafc;
+            color: #f9fafb;
         }
 
         .section-header p {
-            color: #64748b;
-            font-size: 1.1rem;
-            margin-top: 0.5rem;
+            color: #6b7280;
+            font-size: 1.15rem;
+            margin-top: 0.8rem;
         }
 
         /* Grid Dizilimi */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 2.5rem;
         }
 
-        /* Kart Tasarımı */
+        /* Kart Tasarımı & Animasyonları */
         .card {
-            background: rgba(15, 23, 42, 0.7);
-            border-radius: 24px;
+            background: rgba(17, 24, 39, 0.7);
+            border-radius: 28px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
             display: flex;
             flex-direction: column;
         }
 
         .card:hover {
-            transform: translateY(-12px);
-            border-color: rgba(255, 65, 108, 0.5);
-            box-shadow: 0 20px 40px -15px rgba(255, 65, 108, 0.3);
+            transform: translateY(-14px) scale(1.02);
+            border-color: rgba(244, 63, 94, 0.6);
+            box-shadow: 0 25px 50px -12px rgba(244, 63, 94, 0.25);
         }
 
         .card-img-wrapper {
             position: relative;
-            height: 240px;
+            height: 260px;
             overflow: hidden;
         }
 
@@ -183,72 +166,73 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.8s ease;
         }
 
         .card:hover .card-img-wrapper img {
-            transform: scale(1.1);
+            transform: scale(1.12);
         }
 
         .tag {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(8, 12, 20, 0.8);
-            backdrop-filter: blur(10px);
-            color: #ff416c;
-            padding: 0.4rem 1rem;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(12px);
+            color: #f43f5e;
+            padding: 0.5rem 1.2rem;
             border-radius: 30px;
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             font-weight: 700;
-            border: 1px solid rgba(255, 65, 108, 0.3);
+            border: 1px solid rgba(244, 63, 94, 0.4);
         }
 
         .card-body {
-            padding: 2rem;
+            padding: 2.2rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
         .card-body h3 {
-            font-size: 1.5rem;
-            color: #f8fafc;
-            margin-bottom: 1rem;
+            font-size: 1.6rem;
+            color: #f9fafb;
+            margin-bottom: 1.2rem;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.8rem;
         }
 
         .card-body h3 i {
-            color: #ff416c;
+            color: #f43f5e;
         }
 
         .card-body p {
-            color: #94a3b8;
-            line-height: 1.8;
-            font-size: 0.98rem;
-            margin-bottom: 1.5rem;
+            color: #9ca3af;
+            line-height: 1.85;
+            font-size: 1rem;
+            margin-bottom: 1.8rem;
         }
 
         .card-footer {
             margin-top: auto;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #64748b;
-            font-size: 0.85rem;
+            color: #6b7280;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
 
-        /* Animasyonlar */
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(0.98); }
+        /* Özel Animasyon CSS Tanımları */
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.2); }
+            100% { box-shadow: 0 0 25px rgba(239, 68, 68, 0.6); }
         }
 
-        @keyframes gradientMove {
+        @keyframes textGradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
@@ -256,140 +240,140 @@
 
         footer {
             text-align: center;
-            padding: 3rem;
-            background: #030712;
-            color: #475569;
+            padding: 4rem 2rem;
+            background: #020617;
+            color: #4b5563;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 6rem;
+            margin-top: 8rem;
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1.1rem; }
             .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="particles"></div>
-
     <!-- Hero Alanı -->
     <div class="hero">
-        <span class="badge"><i class="fa-solid fa-sparkles"></i> Devasa Kültür Arşivi</span>
-        <h1>TÜRKİYE KEŞİF PORTALI</h1>
-        <p>Geleneksel marangozluk zanaatından sokak oyunlarına, nefis mutfak kültüründen tarihi gezilere ve yöresel kıyafetlere kadar Anadolu'nun tüm renklerini tek bir çatı altında keşfedin.</p>
+        <span class="hero-badge"><i class="fa-solid fa-fire"></i> ULTRA KAPSAMLI REHBER</span>
+        <h1>TÜRKİYE & TEKNOLOJİ PORTALI</h1>
+        <p>Kız Kulesi'nin eşsiz Boğaz manzarasından ileri otomotiv teknolojilerine, yeni nesil elektronik gaming donanımlarından geleneksel ahşap marangozluk zanaatına kadar aradığınız her şey bu portalda!</p>
     </div>
 
-    <!-- Menü -->
+    <!-- Hızlı Erişim Menüsü -->
     <nav>
+        <a href="#kizkulesi"><i class="fa-solid fa-monument"></i> Kız Kulesi & Simge Yapılar</a>
+        <a href="#araclar"><i class="fa-solid fa-car-side"></i> Otomotiv & Araçlar</a>
+        <a href="#elektronik"><i class="fa-solid fa-gamepad"></i> Elektronik & Gaming</a>
         <a href="#marangozluk"><i class="fa-solid fa-hammer"></i> Marangozluk</a>
-        <a href="#oyun"><i class="fa-solid fa-gamepad"></i> Oyunlar</a>
-        <a href="#gezi"><i class="fa-solid fa-route"></i> Gezi & Rotalar</a>
-        <a href="#yemek"><i class="fa-solid fa-utensils"></i> Mutfak</a>
-        <a href="#kiyafet"><i class="fa-solid fa-shirt"></i> Giyim Kültürü</a>
+        <a href="#yemek"><i class="fa-solid fa-utensils"></i> Gastronomi</a>
+        <a href="#kiyafet"><i class="fa-solid fa-shirt"></i> Geleneksel Giyim</a>
     </nav>
 
-    <!-- Kartlar Konteyneri -->
+    <!-- Ana Konteyner -->
     <div class="container">
         <div class="section-header">
-            <h2>Kültürel Derinlik & Zanaat</h2>
-            <p>Anadolu'nun zengin mirasına dair detaylı rehber kartları</p>
+            <h2>Genişletilmiş Konular & Derinlemesine Rehber</h2>
+            <p>Tüm alanlarda hazırlanmış detaylı görsel ve açıklamalar</p>
         </div>
 
         <div class="grid">
 
-            <!-- 1. MARANGOZLUK VE EL SANATLARI -->
+            <!-- 1. KIZ KULESİ VE İSTANBUL SİMGELERİ -->
+            <div id="kizkulesi" class="card">
+                <div class="card-img-wrapper">
+                    <span class="tag">İSTANBUL SİMGESİ</span>
+                    <img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=1000&q=80" alt="Kız Kulesi ve Boğaz">
+                </div>
+                <div class="card-body">
+                    <h3><i class="fa-solid fa-landmark"></i> Kız Kulesi & Tarihi Yapılar</h3>
+                    <p>İstanbul Boğazı'nın incisi olan **Kız Kulesi**, M.Ö. 5. yüzyıldan bu yana deniz ticaretini kontrol etmekten fener yapısına kadar pek çok amaca hizmet etmiştir. Hakkındaki efsaneler, leandro hikayeleri ve eşsiz gün batımı manzarasıyla Türkiye'nin dünyaca tanınan en ikonik simgelerinden biridir.</p>
+                    <div class="card-footer">
+                        <span><i class="fa-solid fa-location-dot"></i> İstanbul, Üsküdar</span>
+                        <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. OTOMOTİV VE ARAÇ TEKNOLOJİLERİ -->
+            <div id="araclar" class="card">
+                <div class="card-img-wrapper">
+                    <span class="tag">TEKNOLOJİ & MÜHENDİSLİK</span>
+                    <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1000&q=80" alt="Elektrikli Araç Teknolojisi">
+                </div>
+                <div class="card-body">
+                    <h3><i class="fa-solid fa-car"></i> Otomotiv & Araç Dünyası</h3>
+                    <p>Türkiye, yerli elektrikli otomobili TOGG başta olmak üzere küresel otomotiv üretim ve AR-GE merkezlerinden biridir. Yeni nesil batarya teknolojileri, otonom sürüş sistemleri ve aerodinamik tasarımlar; ulaşımın geleceğini şekillendirirken performans ve çevreciliği bir araya getiriyor.</p>
+                    <div class="card-footer">
+                        <span><i class="fa-solid fa-charging-station"></i> Elektrikli & Otonom</span>
+                        <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. ELEKTRONİK VE OYUN DONANIMLARI -->
+            <div id="elektronik" class="card">
+                <div class="card-img-wrapper">
+                    <span class="tag">DONANIM & GAMING</span>
+                    <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1000&q=80" alt="Elektronik Donanım ve PS5 Console">
+                </div>
+                <div class="card-body">
+                    <h3><i class="fa-solid fa-microchip"></i> Elektronik & Oyun Konsolları</h3>
+                    <p>Gelişmiş mimarilere sahip grafik işlemciler (GPU), yüksek hızlı NVMe SSD depolama çözümleri, mobil işlemciler ve 4K 120 FPS destekleyen yeni nesil oyun konsolları (PlayStation 5 vb.); dijital dünyanın sınırlarını zorlayarak oyun ve kodlama deneyimini üst seviyeye çıkarıyor.</p>
+                    <div class="card-footer">
+                        <span><i class="fa-solid fa-tv"></i> 4K HDR & Donanım</span>
+                        <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. AHŞAP ZANAATI VE MARANGOZLUK -->
             <div id="marangozluk" class="card">
                 <div class="card-img-wrapper">
-                    <span class="tag">ZANAAT</span>
-                    <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=800&q=80" alt="Marangozluk">
+                    <span class="tag">ZANAAT & AHŞAP</span>
+                    <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1000&q=80" alt="Marangozluk Zanaatı">
                 </div>
                 <div class="card-body">
-                    <h3><i class="fa-solid fa-hammer"></i> Ahşap & Marangozluk</h3>
-                    <p>Anadolu ahşap işçiliği, Selçuklu'dan günümüze "Kündekari" tekniğiyle çivi ve tutkal kullanılmadan birleştirilen muazzam geometrik desenlere dayanır. Ceviz, meşe ve gürgen ağaçlarının elde işlenmesiyle ortaya çıkan kitle sandıkları, ahşap oymacılığı ve geleneksel marangozluk zanaatı hem dayanıklılığı hem de estetik zarafeti bir arada sunar.</p>
+                    <h3><i class="fa-solid fa-hammer"></i> Ahşap & Marangozluk Sanatı</h3>
+                    <p>Ceviz, meşe ve gürgen ağaçlarının işlenmesiyle yapılan geleneksel marangozluk; çivi kullanılmadan birleştirilen "Kündekari" tekniğinden el yapımı ahşap stant ve mobilya tasarımlarına kadar uzanır. Ahşabın doğal dokusu hem ustalık hem de sabır gerektiren mükemmel bir sanattır.</p>
                     <div class="card-footer">
-                        <span><i class="fa-solid fa-tree"></i> Ahşap Oymacılığı</span>
-                        <span>Detaylı İnceleme</span>
+                        <span><i class="fa-solid fa-tree"></i> El İşçiliği</span>
+                        <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
                     </div>
                 </div>
             </div>
 
-            <!-- 2. OYUN KÜLTÜRÜ -->
-            <div id="oyun" class="card">
-                <div class="card-img-wrapper">
-                    <span class="tag">EĞLENCE</span>
-                    <img src="https://images.unsplash.com/photo-1611996575749-79a3a250f948?auto=format&fit=crop&w=800&q=80" alt="Oyunlar">
-                </div>
-                <div class="card-body">
-                    <h3><i class="fa-solid fa-gamepad"></i> Geleneksel & Modern Oyunlar</h3>
-                    <p>Türk kültüründe oyunlar hem stratejiyi hem de sosyalleşmeyi temsil eder. Dünyanın en eski zeka oyunlarından biri olan **Mangala**, yüzyıllardır oynanan cirit ve aşık oyunları geleneksel mirasımızı oluşturur. Günümüzde ise bu zengin strateji kültürü, e-spor ve mobil oyun dünyasına entegre olarak milyonların tutkusu haline gelmiştir.</p>
-                    <div class="card-footer">
-                        <span><i class="fa-solid fa-chess"></i> Strateji & Eğlence</span>
-                        <span>Detaylı İnceleme</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. GEZİ VE ROTALAR -->
-            <div id="gezi" class="card">
-                <div class="card-img-wrapper">
-                    <span class="tag">GEZİ & ROTA</span>
-                    <img src="https://images.unsplash.com/photo-1641128324972-af3212f0f6bd?auto=format&fit=crop&w=800&q=80" alt="Kapadokya">
-                </div>
-                <div class="card-body">
-                    <h3><i class="fa-solid fa-map-location-dot"></i> Unutulmaz Gezi Rotaları</h3>
-                    <p>Ege'nin turkuaz koylarından Karadeniz'in sisli yaylalarına, Likya Yolu'nun tarihi yürüyüş rotalarından Doğu Ekspresi ile Kars yolculuğuna kadar Türkiye; her köşesinde ayrı bir macera barındırır. Kapadokya'nın peri bacaları ve Doğu Anadolu'nun heybetli kaleleri doğa ile tarihin mükemmel uyumunu sunar.</p>
-                    <div class="card-footer">
-                        <span><i class="fa-solid fa-compass"></i> Doğa & Seyahat</span>
-                        <span>Detaylı İnceleme</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. YEMEK VE MUTFAK SANATI -->
+            <!-- 5. LEZZET VE GASTRONOMİ KÜLTÜRÜ -->
             <div id="yemek" class="card">
                 <div class="card-img-wrapper">
-                    <span class="tag">MUTFAK</span>
-                    <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=800&q=80" alt="Yemek Kültürü">
+                    <span class="tag">GASTRONOMİ</span>
+                    <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1000&q=80" alt="Türk Mutfağı">
                 </div>
                 <div class="card-body">
-                    <h3><i class="fa-solid fa-utensils"></i> Gastronomi & Lezzetler</h3>
-                    <p>İpek Yolu'nun lezzetlerini taşıyan Türk mutfağı; odun ateşinde ağır ağır pişen Güneydoğu kebapları, Ege'nin şifalı zeytinyağlıları, Mantı, Baklava ve köklü çay/kahve kültürü ile dünyanın en zengin 3 mutfağından biridir. Her ilin kendine has coğrafi işaretli lezzetleri unutulmaz bir gastronomi deneyimi sunar.</p>
+                    <h3><i class="fa-solid fa-utensils"></i> Türk Mutfağı & Tatlar</h3>
+                    <p>Doğu ile Batı lezzetlerinin birleşimi olan Türk mutfağı; odun ateşinde ağır ağır pişen zengin kebap çeşitleri, taş fırın pide gelenekleri, Antep fıstıklı baklavaları ve demli Türk çayı eşliğinde dünyaca ünlü bir lezzet mirası sunar.</p>
                     <div class="card-footer">
-                        <span><i class="fa-solid fa-fire-burner"></i> Zengin Gastronomi</span>
-                        <span>Detaylı İnceleme</span>
+                        <span><i class="fa-solid fa-bowl-food"></i> Zengin Mutfak</span>
+                        <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
                     </div>
                 </div>
             </div>
 
-            <!-- 5. KIYAFET VE DOKUMA KÜLTÜRÜ -->
+            <!-- 6. GELENEKSEL GIYIM VE DOKUMA -->
             <div id="kiyafet" class="card">
                 <div class="card-img-wrapper">
-                    <span class="tag">GİYİM SANATI</span>
-                    <img src="https://images.unsplash.com/photo-1606744837616-56c9a5c6a6eb?auto=format&fit=crop&w=800&q=80" alt="Geleneksel Dokuma">
+                    <span class="tag">KÜLTÜR & TEKSTİL</span>
+                    <img src="https://images.unsplash.com/photo-1606744837616-56c9a5c6a6eb?auto=format&fit=crop&w=1000&q=80" alt="Geleneksel Dokumalar">
                 </div>
                 <div class="card-body">
-                    <h3><i class="fa-solid fa-shirt"></i> Geleneksel Giyim & Dokuma</h3>
-                    <p>Anadolu'nun geleneksel kıyafetleri, bölgenin iklimi ve yaşam tarzına göre şekillenmiştir. Efe ve Zeybeklerin heybetli başlıkları, Karadeniz'in keşan dokumaları, ipek bindallılar ve el dokuması Hereke ile Kars halıları; ilmek ilmek işlenmiş renkli motifleriyle Anadolulu kadın ve erkeklerin hislerini simgeler.</p>
+                    <h3><i class="fa-solid fa-shirt"></i> Geleneksel Giyim & Motifler</h3>
+                    <p>Efe kostümlerinden Karadeniz'in keşan dokumalarına, elde işlenmiş bindallılardan köklü Hereke halılarına kadar Anadolu dokuma sanatı; üzerindeki geometrik motifler ve canlı renkleriyle asırlık bir kültürel hafızayı yansıtır.</p>
                     <div class="card-footer">
-                        <span><i class="fa-solid fa-scissors"></i> El Dokuması & Motifler</span>
-                        <span>Detaylı İnceleme</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 6.MİMARİ VE YAPI MİRASI -->
-            <div class="card">
-                <div class="card-img-wrapper">
-                    <span class="tag">MİMARİ</span>
-                    <img src="https://images.unsplash.com/photo-1527838832700-5059252407fa?auto=format&fit=crop&w=800&q=80" alt="Tarihi Mimari">
-                </div>
-                <div class="card-body">
-                    <h3><i class="fa-solid fa-building-columns"></i> Mimarinin Evrimi</h3>
-                    <p>Cumbalı Safranbolu konaklarından Mimar Sinan'ın "usta işi" dediği kubbeli camilere, taş işçiliğiyle ünlü Mardin evlerinden cumhuriyet dönemi modern mimarisine kadar Türkiye; mimarlık tarihine yön vermiş yapılara ev sahipliği yapar.</p>
-                    <div class="card-footer">
-                        <span><i class="fa-solid fa-archway"></i> Taş & Ahşap Yapılar</span>
-                        <span>Detaylı İnceleme</span>
+                        <span><i class="fa-solid fa-scissors"></i> Motif & Dokuma</span>
+                        <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
                     </div>
                 </div>
             </div>
@@ -397,8 +381,9 @@
         </div>
     </div>
 
+    <!-- Alt Bilgi -->
     <footer>
-        <p>&copy; 2026 Türkiye Keşif & Kültür Portalı — Tüm Konular & Gelişmiş Tasarım</p>
+        <p>&copy; 2026 Türkiye Ultra Kültür & Teknoloji Portalı — Tüm Hakları Saklıdır.</p>
     </footer>
 
 </body>
