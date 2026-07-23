@@ -69,6 +69,84 @@
             max-width: 850px;
             line-height: 1.6;
             font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        /* Canlı Arama Kutusu */
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.9rem 1.2rem 0.9rem 3rem;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: #f43f5e;
+            box-shadow: 0 0 15px rgba(244, 63, 94, 0.4);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+        }
+
+        /* Rastgele Bilgi Kartı */
+        .fact-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(244, 63, 94, 0.3);
+            border-radius: 16px;
+            padding: 1.2rem 1.5rem;
+            max-width: 700px;
+            margin: -2rem auto 2rem auto;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .fact-card h4 {
+            color: #f43f5e;
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .fact-card p {
+            color: #e2e8f0;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .fact-card button {
+            background: rgba(244, 63, 94, 0.2);
+            border: 1px solid rgba(244, 63, 94, 0.5);
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .fact-card button:hover {
+            background: #f43f5e;
         }
 
         /* İnce Kaydırılabilir Menü */
@@ -230,6 +308,29 @@
             font-weight: 600;
         }
 
+        /* Yukarı Çık Butonu */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #f43f5e;
+            color: #fff;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(244, 63, 94, 0.4);
+            transition: all 0.3s;
+            z-index: 99;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+        }
+
         @keyframes pulseGlow {
             0% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.2); }
             100% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.5); }
@@ -262,9 +363,22 @@
 
     <!-- Hero -->
     <div class="hero">
-        <span class="hero-badge"><i class="fa-solid fa-star"></i> DEVASE TÜRKİYE ANSİKLOPEDİSİ</span>
+        <span class="hero-badge"><i class="fa-solid fa-star"></i> INTERAKTİF TÜRKİYE PORTALI</span>
         <h1>TÜRKİYE MEGA KEŞİF PORTALI</h1>
         <p>Süper Lig coşkusundan yerli icatlara, zengin Türk mutfağından marangozluk zanaatına ve tarihi güzelliklere kadar her şey bu portalda!</p>
+        
+        <!-- Canlı Arama Kutusu -->
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="Sitede konu ara (Örn: Futbol, TOGG, Kebap...)" onkeyup="filterCards()">
+        </div>
+    </div>
+
+    <!-- Rastgele Bilgi Kartı -->
+    <div class="fact-card">
+        <h4><i class="fa-solid fa-lightbulb"></i> Biliyor Muydunuz?</h4>
+        <p id="factText">Yükleniyor...</p>
+        <button onclick="changeFact()"><i class="fa-solid fa-rotate"></i> Başka Bir Bilgi Göster</button>
     </div>
 
     <!-- Hızlı Gezinme Menüsü -->
@@ -284,7 +398,7 @@
             <p>Hangi konuyu merak ediyorsan üzerine tıkla ve keşfet</p>
         </div>
 
-        <div class="grid">
+        <div class="grid" id="cardGrid">
 
             <!-- 1. TRENDYOL SÜPER LİG & FUTBOL KÜLTÜRÜ -->
             <div id="futbol" class="card">
@@ -401,10 +515,16 @@
         </div>
     </div>
 
+    <!-- Yukarı Çık Butonu -->
+    <a href="#" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
+
     <footer>
         <p>&copy; 2026 Türkiye Mega Keşif & Kültür Portalı — Tüm Hakları Saklıdır.</p>
     </footer>
 
-</body>
-    </html>
-                        
+    <!-- JavaScript Dinamik Özellikler -->
+    <script>
+        // Rastgele Bilgiler Listesi
+        const facts = [
+            "Dünyada en çok çay tüketen ülke açık ara farkla Türkiye'dir!",
+            "Dünyanın en eski tapınak kompleksi kabul edilen Göbeklitepe, Şanlıurfa'dadır."
