@@ -48,7 +48,7 @@
             font-weight: 700;
             margin-bottom: 1.5rem;
             letter-spacing: 1px;
-            animation: pulseGlow 3s infinite alternate;
+            animation: pulseGlow 2s infinite alternate;
         }
 
         .hero h1 {
@@ -58,7 +58,7 @@
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: textGradient 5s ease infinite;
+            animation: textGradient 4s ease infinite;
             margin-bottom: 1rem;
             line-height: 1.1;
         }
@@ -94,7 +94,7 @@
 
         .search-box input:focus {
             border-color: #f43f5e;
-            box-shadow: 0 0 15px rgba(244, 63, 94, 0.4);
+            box-shadow: 0 0 20px rgba(244, 63, 94, 0.5);
         }
 
         .search-box i {
@@ -103,6 +103,89 @@
             top: 50%;
             transform: translateY(-50%);
             color: #9ca3af;
+        }
+
+        /* AI Asistan Maskotu */
+        .assistant-container {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .assistant-bubble {
+            background: rgba(17, 24, 39, 0.95);
+            border: 1px solid #f43f5e;
+            box-shadow: 0 10px 25px rgba(244, 63, 94, 0.3);
+            border-radius: 18px;
+            padding: 0.8rem 1.2rem;
+            color: #fff;
+            font-size: 0.85rem;
+            max-width: 260px;
+            margin-bottom: 10px;
+            backdrop-filter: blur(10px);
+            animation: bounceIn 0.5s ease;
+            position: relative;
+        }
+
+        .assistant-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 25px;
+            border-width: 8px 8px 0;
+            border-style: solid;
+            border-color: #f43f5e transparent;
+            display: block;
+            width: 0;
+        }
+
+        .assistant-character {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #f43f5e, #3b82f6);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(244, 63, 94, 0.6);
+            animation: floatCharacter 3s ease-in-out infinite;
+            border: 2px solid #fff;
+            transition: transform 0.3s;
+        }
+
+        .assistant-character:hover {
+            transform: scale(1.15) rotate(10deg);
+        }
+
+        .assistant-menu {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin-top: 0.5rem;
+        }
+
+        .assistant-btn {
+            background: rgba(244, 63, 94, 0.2);
+            border: 1px solid rgba(244, 63, 94, 0.5);
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s;
+        }
+
+        .assistant-btn:hover {
+            background: #f43f5e;
+            transform: translateX(-3px);
         }
 
         /* Rastgele Bilgi Kartı */
@@ -223,21 +306,23 @@
             gap: 2rem;
         }
 
-        /* Kart Tasarımı */
+        /* 3D Gelişmiş Kart Tasarımı */
         .card {
             background: rgba(17, 24, 39, 0.7);
             border-radius: 20px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(244, 63, 94, 0.5);
-            box-shadow: 0 15px 30px -10px rgba(244, 63, 94, 0.25);
+            transform: translateY(-12px) scale(1.02) rotateX(2deg);
+            border-color: rgba(244, 63, 94, 0.8);
+            box-shadow: 0 20px 40px -15px rgba(244, 63, 94, 0.35);
         }
 
         .card-img-wrapper {
@@ -254,7 +339,7 @@
         }
 
         .card:hover .card-img-wrapper img {
-            transform: scale(1.08);
+            transform: scale(1.12);
         }
 
         .tag {
@@ -328,12 +413,25 @@
         }
 
         .back-to-top:hover {
-            transform: scale(1.1);
+            transform: scale(1.15) rotate(360deg);
+        }
+
+        /* Animasyon Tanımları */
+        @keyframes floatCharacter {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         @keyframes pulseGlow {
             0% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.2); }
-            100% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.5); }
+            100% { box-shadow: 0 0 25px rgba(239, 68, 68, 0.6); }
         }
 
         @keyframes textGradient {
@@ -369,7 +467,24 @@
 </head>
 <body>
 
-    <!-- Hero -->
+    <!-- Canlı Yapay Zeka Asistan Karakteri -->
+    <div class="assistant-container">
+        <div class="assistant-bubble" id="assistantBubble">
+            <strong>Merhaba Yağız! 🚀</strong><br>
+            Ben senin akıllı rehberinim! Hangi konuyu merak ediyorsun? Tıkla seni ışınlayayım:
+            <div class="assistant-menu" id="assistantMenu">
+                <button class="assistant-btn" onclick="navigateTo('kutahya')">💎 Kütahya Çinisi</button>
+                <button class="assistant-btn" onclick="navigateTo('futbol')">⚽ Süper Lig & Futbol</button>
+                <button class="assistant-btn" onclick="navigateTo('icatlar')">🚀 TOGG & İcatlar</button>
+                <button class="assistant-btn" onclick="navigateTo('yemek')">🍲 Türk Mutfağı</button>
+            </div>
+        </div>
+        <div class="assistant-character" onclick="toggleAssistantMenu()">
+            <i class="fa-solid fa-robot"></i>
+        </div>
+    </div>
+
+    <!-- Hero Banner -->
     <div class="hero">
         <span class="hero-badge"><i class="fa-solid fa-star"></i> İNTERAKTİF TÜRKİYE PORTALI</span>
         <h1>TÜRKİYE MEGA KEŞİF PORTALI</h1>
@@ -409,7 +524,7 @@
 
         <div class="grid" id="cardGrid">
 
-            <!-- 1. KÜTAHYAÖZEL KARTI -->
+            <!-- 1. KÜTAHYA ÖZEL KARTI -->
             <div id="kutahya" class="card">
                 <div class="card-img-wrapper">
                     <span class="tag">ÇİNİ & TARİH</span>
@@ -464,65 +579,4 @@
                     <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1000&q=80" alt="TOGG ve Elektrikli Araçlar">
                 </div>
                 <div class="card-body">
-                    <h3><i class="fa-solid fa-rocket"></i> Yerli İcatlar & Mühendislik</h3>
-                    <p>Türkiye, Milli Teknoloji Hamlesi ile mühendislik alanında dev adımlar atıyor. Yerli otomobil TOGG, hava savunma ve İHA/SİHA teknolojileri, uydular ve yerli sanayi projeleri Türkiye'nin teknoloji üreten vizyonunu gösteriyor.</p>
-                    <div class="card-footer">
-                        <span><i class="fa-solid fa-microchip"></i> TOGG, İHA & Sanayi</span>
-                        <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 5. KIZ KULESİ VE İSTANBUL SİMGELERİ -->
-            <div id="kizkulesi" class="card">
-                <div class="card-img-wrapper">
-                    <span class="tag">TARİHİ MİRAS</span>
-                    <img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=1000&q=80" alt="Kız Kulesi">
-                </div>
-                <div class="card-body">
-                    <h3><i class="fa-solid fa-landmark"></i> Kız Kulesi & İstanbul Simgeleri</h3>
-                    <p>İstanbul Boğazı'nın tam ortasında yükselen Kız Kulesi, Galata Kulesi, Ayasofya ve Boğaz Köprüleri ile Türkiye'nin en ikonik noktalarından biridir. Yüzyıllardır süren hikayeleriyle ziyaretçilerini büyüler.</p>
-                    <div class="card-footer">
-                        <span><i class="fa-solid fa-location-dot"></i> İstanbul, Üsküdar</span>
-                        <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 6. TÜRK MUTFAĞI VE GASTRONOMİ -->
-            <div id="yemek" class="card">
-                <div class="card-img-wrapper">
-                    <span class="tag">GASTRONOMİ</span>
-                    <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1000&q=80" alt="Türk Yemekleri">
-                </div>
-                <div class="card-body">
-                    <h3><i class="fa-solid fa-utensils"></i> Türk Mutfağı & Eşsiz Lezzetler</h3>
-                    <p>Mantıdan yaprak sarmasına, taş fırın pidelerinden odun ateşinde pişen kebabına, Fıstıklı Antep Baklavası ve demli çaya kadar Türk mutfağı dünyanın en zengin gastronomi kültürlerinden biridir.</p>
-                    <div class="card-footer">
-                        <span><i class="fa-solid fa-bowl-food"></i> Zengin Mutfak Mirası</span>
-                        <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 7. YERLİ OYUN & YAZILIM SEKTÖRÜ -->
-            <div id="yazilim" class="card">
-                <div class="card-img-wrapper">
-                    <span class="tag">YAZILIM & GAMING</span>
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80" alt="Yazılım ve Oyun Geliştirme">
-                </div>
-                <div class="card-body">
-                    <h3><i class="fa-solid fa-code"></i> Yerli Oyun Stüdyoları & Yazılım</h3>
-                    <p>TaleWorlds'ün Mount & Blade başarısı, milyarlarca indirilen yerli mobil oyun stüdyoları ve bağımsız (indie) geliştiriciler ile Türkiye, küresel oyun yazılımı pazarının en hızlı büyüyen aktörlerinden biridir.</p>
-                    <div class="card-footer">
-                        <span><i class="fa-solid fa-gamepad"></i> Mount & Blade & Indie Oyunlar</span>
-                        <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 8. AHŞAP ZANAATI VE MARANGOZLUK -->
-            <div id="marangozluk" class="card">
-                <div class="card-img-wrapper">
-                    <span class="tag">EL ZANAATLARI</span>
-      
+                    <h3><i class
