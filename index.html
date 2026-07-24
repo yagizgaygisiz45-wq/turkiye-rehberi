@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Türkiye Mega Keşif & Kültür Portalı</title>
+    <title>Türkiye Mega Keşif & Sesli AI Portalı</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome İkon Seti -->
@@ -22,12 +22,13 @@
             background-color: #030712;
             color: #f3f4f6;
             overflow-x: hidden;
+            background: radial-gradient(circle at top, #1e1b4b 0%, #030712 70%);
         }
 
-        /* Hero Banner */
+        /* Hero Banner & Glow Effect */
         .hero {
-            min-height: 75vh;
-            background: linear-gradient(180deg, rgba(3, 7, 18, 0.5) 0%, rgba(3, 7, 18, 1) 100%), 
+            min-height: 70vh;
+            background: linear-gradient(180deg, rgba(3, 7, 18, 0.6) 0%, rgba(3, 7, 18, 1) 100%), 
                         url('https://images.unsplash.com/photo-1527838832700-5059252407fa?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
             display: flex;
             flex-direction: column;
@@ -38,7 +39,7 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 800;
             background: linear-gradient(135deg, #ffffff 0%, #f43f5e 50%, #3b82f6 100%);
             background-size: 200% auto;
@@ -47,6 +48,7 @@
             animation: textGradient 4s ease infinite;
             margin-bottom: 1rem;
             line-height: 1.1;
+            text-shadow: 0 0 30px rgba(244, 63, 94, 0.3);
         }
 
         .hero p {
@@ -65,19 +67,20 @@
 
         .search-box input {
             width: 100%;
-            padding: 0.9rem 1.2rem 0.9rem 3rem;
+            padding: 1rem 1.2rem 1rem 3rem;
             border-radius: 30px;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(17, 24, 39, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(15px);
             color: #fff;
             outline: none;
             transition: all 0.3s ease;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
 
         .search-box input:focus {
             border-color: #f43f5e;
-            box-shadow: 0 0 20px rgba(244, 63, 94, 0.5);
+            box-shadow: 0 0 25px rgba(244, 63, 94, 0.6);
         }
 
         .search-box i {
@@ -85,35 +88,41 @@
             left: 1.2rem;
             top: 50%;
             transform: translateY(-50%);
-            color: #9ca3af;
+            color: #f43f5e;
         }
 
-        /* Rastgele Bilgi Kartı */
+        /* Bilgi Kartı Efekti */
         .fact-card {
-            background: rgba(30, 41, 59, 0.7);
-            border: 1px solid rgba(244, 63, 94, 0.3);
-            border-radius: 16px;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(244, 63, 94, 0.4);
+            border-radius: 20px;
             padding: 1.2rem 1.5rem;
             max-width: 700px;
             margin: -2rem auto 2rem auto;
             text-align: center;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             position: relative;
             z-index: 10;
         }
 
         .fact-card button {
-            background: #f43f5e;
+            background: linear-gradient(135deg, #f43f5e, #e11d48);
             color: white;
             border: none;
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 20px;
             margin-top: 10px;
             cursor: pointer;
             font-weight: 600;
+            transition: transform 0.2s;
         }
 
-        /* AI Asistan Maskotu */
+        .fact-card button:hover {
+            transform: scale(1.05);
+        }
+
+        /* AI Asistan Maskotu ve Ses Alıcısı */
         .assistant-container {
             position: fixed;
             bottom: 30px;
@@ -127,16 +136,18 @@
         .assistant-bubble {
             background: rgba(17, 24, 39, 0.95);
             border: 1px solid #f43f5e;
-            box-shadow: 0 10px 25px rgba(244, 63, 94, 0.3);
-            border-radius: 18px;
-            padding: 0.8rem 1.2rem;
+            box-shadow: 0 10px 30px rgba(244, 63, 94, 0.4);
+            border-radius: 20px;
+            padding: 1rem 1.2rem;
             color: #fff;
             font-size: 0.85rem;
-            max-width: 280px;
-            margin-bottom: 10px;
-            backdrop-filter: blur(10px);
+            max-width: 290px;
+            margin-bottom: 12px;
+            backdrop-filter: blur(15px);
             position: relative;
             display: none;
+            flex-direction: column;
+            gap: 8px;
         }
 
         .assistant-bubble::after {
@@ -149,9 +160,38 @@
             border-color: #f43f5e transparent;
         }
 
+        /* Mikrofon ve Konuşma Alanı */
+        .voice-control-box {
+            background: rgba(244, 63, 94, 0.15);
+            border: 1px dashed #f43f5e;
+            padding: 8px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .mic-btn {
+            background: #f43f5e;
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin-top: 5px;
+            box-shadow: 0 0 15px rgba(244, 63, 94, 0.6);
+            transition: all 0.3s;
+        }
+
+        .mic-btn.listening {
+            background: #10b981;
+            animation: pulseMic 1s infinite alternate;
+        }
+
         .assistant-character {
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             background: linear-gradient(135deg, #f43f5e, #3b82f6);
             border-radius: 50%;
             display: flex;
@@ -160,7 +200,7 @@
             font-size: 1.8rem;
             color: #fff;
             cursor: pointer;
-            box-shadow: 0 0 20px rgba(244, 63, 94, 0.6);
+            box-shadow: 0 0 25px rgba(244, 63, 94, 0.7);
             animation: floatCharacter 3s ease-in-out infinite;
             border: 2px solid #fff;
         }
@@ -173,14 +213,20 @@
         }
 
         .assistant-btn {
-            background: rgba(244, 63, 94, 0.2);
-            border: 1px solid rgba(244, 63, 94, 0.5);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             color: #fff;
             padding: 0.4rem 0.6rem;
             border-radius: 10px;
             font-size: 0.75rem;
             cursor: pointer;
             text-align: center;
+            transition: all 0.2s;
+        }
+
+        .assistant-btn:hover {
+            background: #f43f5e;
+            border-color: #f43f5e;
         }
 
         /* İçerik Grid / Kartlar */
@@ -192,28 +238,35 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
         .card {
-            background: rgba(17, 24, 39, 0.8);
-            border-radius: 20px;
+            background: rgba(17, 24, 39, 0.6);
+            border-radius: 24px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.02);
             border-color: #f43f5e;
-            box-shadow: 0 10px 30px rgba(244, 63, 94, 0.2);
+            box-shadow: 0 20px 40px rgba(244, 63, 94, 0.25);
         }
 
         .card img {
             width: 100%;
-            height: 200px;
+            height: 210px;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.08);
         }
 
         .card-body {
@@ -223,7 +276,7 @@
         .card-body h3 {
             font-size: 1.3rem;
             color: #fff;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -231,14 +284,19 @@
 
         .card-body p {
             color: #9ca3af;
-            font-size: 0.9rem;
-            line-height: 1.5;
+            font-size: 0.92rem;
+            line-height: 1.6;
         }
 
         @keyframes floatCharacter {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+            50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulseMic {
+            0% { box-shadow: 0 0 10px #10b981; transform: scale(1); }
+            100% { box-shadow: 0 0 25px #10b981; transform: scale(1.15); }
         }
 
         @keyframes textGradient {
@@ -250,17 +308,25 @@
 </head>
 <body>
 
-    <!-- Akıllı Asistan -->
+    <!-- Akıllı Asistan & Sesli Komut Sistemi -->
     <div class="assistant-container">
         <div class="assistant-bubble" id="assistantBubble">
-            <strong>Merhaba! 🚀</strong><br>
-            Ben senin akıllı rehberinim. Hangi konuyu merak ediyorsun?
+            <strong>Merhaba! 🚀</strong>
+            <p id="assistantStatus">Sana nasıl yardımcı olabilirim? Aşağıdaki mikrofona basıp konuşabilirsin!</p>
+            
+            <!-- Ses Dinleme Alanı -->
+            <div class="voice-control-box">
+                <span id="voiceText" style="font-size:0.75rem; color:#f43f5e; display:block;">"Beni arabalara götür" de...</span>
+                <button class="mic-btn" id="micBtn" onclick="startListening()"><i class="fa-solid fa-microphone"></i></button>
+            </div>
+
             <div class="assistant-menu">
-                <button class="assistant-btn" onclick="navigateTo('kutahya', 'Kütahya çini bölümüne gidiyoruz!')">💎 Kütahya</button>
-                <button class="assistant-btn" onclick="navigateTo('futbol', 'Süper lig ve futbol coşkusu burada!')">⚽ Futbol</button>
-                <button class="assistant-btn" onclick="navigateTo('arabalar', 'İşte yerli ve efsane arabalar bölümü!')">🚗 Arabalar</button>
-                <button class="assistant-btn" onclick="navigateTo('icatlar', 'Milli teknoloji ve icatlar burada!')">🚀 İcatlar</button>
-                <button class="assistant-btn" onclick="navigateTo('yemek', 'Nefis Türk yemekleri bölümü!')">🍲 Yemekler</button>
+                <button class="assistant-btn" onclick="navigateTo('kutahya', 'Kütahya bölümüne gidiyoruz!')">💎 Kütahya</button>
+                <button class="assistant-btn" onclick="navigateTo('arabalar', 'İşte yerli ve efsane arabalar!')">🚗 Arabalar</button>
+                <button class="assistant-btn" onclick="navigateTo('futbol', 'Süper lig ve futbol coşkusu!')">⚽ Futbol</button>
+                <button class="assistant-btn" onclick="navigateTo('tarih', 'Tarih ve antik kentler bölümü!')">🏰 Tarih</button>
+                <button class="assistant-btn" onclick="navigateTo('doga', 'Türkiye Doğa Harikaları!')">🏔️ Doğa</button>
+                <button class="assistant-btn" onclick="navigateTo('yemek', 'Zengin Türk mutfağı!')">🍲 Yemekler</button>
             </div>
         </div>
         <div class="assistant-character" id="assistantCharacter">
@@ -271,10 +337,10 @@
     <!-- Hero Bölümü -->
     <div class="hero">
         <h1>TÜRKİYE MEGA KEŞİF PORTALI</h1>
-        <p>Kütahya'nın çinilerinden otomobillere, futbol heyecanından zengin mutfağımıza kadar her şey bu portalda!</p>
+        <p>Kütahya çinilerinden efsane otomobillere, futbol heyecanından tarihi kentlerimize ve eşsiz mutfağımıza kadar her şeyi sesli asistanınla keşfet!</p>
         <div class="search-box">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" placeholder="Sitede arama yap (Örn: Arabalar, Kütahya, Futbol...)" onkeyup="filterCards()">
+            <input type="text" id="searchInput" placeholder="Konu ara (Örn: Arabalar, Kütahya, Tarih...)" onkeyup="filterCards()">
         </div>
     </div>
 
@@ -293,7 +359,7 @@
                 <img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=800&q=80" alt="Kütahya">
                 <div class="card-body">
                     <h3><i class="fa-solid fa-gem" style="color: #3b82f6;"></i> Kütahya & Çini Sanatı</h3>
-                    <p>Kütahya, Osmanlı'dan günümüze çini sanatının başkentidir. Tarihi Kütahya Kalesi, Aizanoi Antik Kenti ve dünyaca ünlü seramikleriyle Ege'nin en özel şehirlerinden biridir.</p>
+                    <p>Kütahya, dünyaca ünlü çini sanatının başkentidir. Tarihi Kütahya Kalesi, Aizanoi Antik Kenti ve porselenleriyle Ege'nin gözbebeğidir.</p>
                 </div>
             </div>
 
@@ -302,7 +368,7 @@
                 <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80" alt="Arabalar">
                 <div class="card-body">
                     <h3><i class="fa-solid fa-car" style="color: #ef4444;"></i> Yerli Otomobiller & Arabalar</h3>
-                    <p>İlk yerli otomobilimiz Devrim'den günümüzün %100 elektrikli akıllı cihazı TOGG'a kadar Türkiye'nin otomotiv serüveni ve efsane araba modelleri!</p>
+                    <p>İlk yerli otomobilimiz Devrim'den günümüzün %100 elektrikli akıllı cihazı TOGG'a kadar Türkiye'nin Otomotiv serüveni ve efsane araba modelleri!</p>
                 </div>
             </div>
 
@@ -311,16 +377,25 @@
                 <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80" alt="Futbol">
                 <div class="card-body">
                     <h3><i class="fa-solid fa-futbol" style="color: #10b981;"></i> Süper Lig & Futbol</h3>
-                    <p>Türkiye'de futbol büyük bir tutkudur! Süper Lig heyecanı, dev derbiler, stadyum atmosferleri ve unutulmaz futbol efsaneleri bu coşkunun parçasıdır.</p>
+                    <p>Türkiye'de futbol büyük bir sevdadır! Süper Lig heyecanı, coşkulu derbiler, stadyum atmosferleri ve efsaneleşmiş kulüplerimiz.</p>
                 </div>
             </div>
 
-            <!-- İcatlar Kartı -->
-            <div class="card" id="icatlar">
-                <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=800&q=80" alt="İcatlar">
+            <!-- Tarih & Antik Kentler -->
+            <div class="card" id="tarih">
+                <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80" alt="Tarih">
                 <div class="card-body">
-                    <h3><i class="fa-solid fa-rocket" style="color: #8b5cf6;"></i> Yerli İcatlar & Teknoloji</h3>
-                    <p>Bayraktar TB2, KIZILELMA, HÜRJET, milli uydularımız ve Türk mühendislerinin imza attığı en modern savunma ve uzay teknolojileri.</p>
+                    <h3><i class="fa-solid fa-landmark" style="color: #eab308;"></i> Tarih & Antik Kentler</h3>
+                    <p>Göbeklitepe'den Efes Antik Kenti'ne, Truva'dan Aizanoi'ye kadar medeniyetlerin doğduğu topraklarda binlerce yıllık muhteşem tarih.</p>
+                </div>
+            </div>
+
+            <!-- Doğa & Turizm -->
+            <div class="card" id="doga">
+                <img src="https://images.unsplash.com/photo-1608822806947-2384a896d84f?auto=format&fit=crop&w=800&q=80" alt="Doğa">
+                <div class="card-body">
+                    <h3><i class="fa-solid fa-mountain-sun" style="color: #06b6d4;"></i> Doğa & Turizm Harikaları</h3>
+                    <p>Kapadokya'nın peribacalarından Pamukkale travertenlerine, Karadeniz yaylalarından Ege ve Akdeniz'in masmavi koylarına cennet köşeler.</p>
                 </div>
             </div>
 
@@ -329,28 +404,27 @@
                 <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Yemekler">
                 <div class="card-body">
                     <h3><i class="fa-solid fa-bowl-food" style="color: #f59e0b;"></i> Zengin Türk Mutfağı</h3>
-                    <p>Kebabından mantısına, baklavasından Dönerine kadar dünyanın en zengin mutfaklarından biri olan Türk mutfağının eşsiz lezzetleri.</p>
+                    <p>Kebabından mantısına, Baklavasından Maraş dondurmasına kadar dünya çapında lezzetleriyle Türk mutfağının başyapıtları.</p>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <!-- JavaScript Dinamik Fonksiyonlar -->
+    <!-- JS Dinamik Fonksiyonlar & Sesli Komut Motoru -->
     <script>
         const facts = [
             "Kütahya, dünyada çini sanatının en önemli merkezlerinden biridir!",
             "İlk yerli Türk otomobili Devrim, 1961 yılında 129 günde üretilmiştir.",
             "Dünyada en çok çay tüketilen ülke açık ara farkla Türkiye'dir!",
             "Dünyanın en eski tapınak kompleksi Göbeklitepe, Şanlıurfa'dadır.",
-            "Yerli elektrikli otomobilimiz TOGG, Gemlik'teki tesiste üretilmektedir."
+            "Yerli elektrikli otomobilimiz TOGG, Gemlik'teki tesislerde üretilmektedir."
         ];
 
         function changeFact() {
             const randomIndex = Math.floor(Math.random() * facts.length);
             document.getElementById('factText').innerText = facts[randomIndex];
         }
-
         changeFact();
 
         function filterCards() {
@@ -368,7 +442,7 @@
             }
         }
 
-        // Sesli Konuşma Motoru
+        // Sesli Okuma Motoru (TTS)
         function speakText(text) {
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel(); 
@@ -388,34 +462,63 @@
             }
         }
 
-        // Asistan Aç/Kapa
-        const character = document.getElementById('assistantCharacter');
-        const bubble = document.getElementById('assistantBubble');
+        // SES TANIMA / DİNLEME MOTORU (Speech Recognition)
+        const micBtn = document.getElementById('micBtn');
+        const voiceText = document.getElementById('voiceText');
 
-        character.addEventListener('click', function() {
-            if (bubble.style.display === "flex") {
-                bubble.style.display = "none";
-            } else {
-                bubble.style.display = "flex";
-                speakText("Merhaba! Ben senin akıllı rehberinim. Hangi konuyu merak ediyorsun?");
-            }
-        });
+        function startListening() {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-        // Sayfada yumuşak kaydırma
-        function navigateTo(id, speechMessage) {
-            const element = document.getElementById(id);
-            if(element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                
-                element.style.boxShadow = "0 0 30px #f43f5e";
-                setTimeout(() => {
-                    element.style.boxShadow = "";
-                }, 2000);
-                
-                speakText(speechMessage);
+            if (!SpeechRecognition) {
+                alert("Maalesef tarayıcınız ses tanıma özelliğini desteklemiyor. Chrome veya Edge kullanabilirsiniz.");
+                return;
             }
+
+            const recognition = new SpeechRecognition();
+            recognition.lang = 'tr-TR';
+            recognition.interimResults = false;
+
+            recognition.onstart = function() {
+                micBtn.classList.add('listening');
+                voiceText.innerText = "Seni dinliyorum, konuş...";
+            };
+
+            recognition.onspeechend = function() {
+                micBtn.classList.remove('listening');
+                recognition.stop();
+            };
+
+            recognition.onresult = function(event) {
+                const command = event.results[0][0].transcript.toLowerCase();
+                voiceText.innerText = 'Algılandı: "' + command + '"';
+                
+                processVoiceCommand(command);
+            };
+
+            recognition.onerror = function(event) {
+                micBtn.classList.remove('listening');
+                voiceText.innerText = "Seni anlayamadım, tekrar dene.";
+            };
+
+            recognition.start();
         }
-    </script>
-</body>
-    </html>
-    
+
+        // Sesli Komutları Analiz Etme ve Sayfada Yönlendirme
+        function processVoiceCommand(cmd) {
+            if (cmd.includes('kütahya') || cmd.includes('çini')) {
+                navigateTo('kutahya', 'Seni Kütahya çinisi bölümüne götürüyorum!');
+            } else if (cmd.includes('araba') || cmd.includes('otomobil') || cmd.includes('togg')) {
+                navigateTo('arabalar', 'İşte efsane ve yerli arabalar bölümü!');
+            } else if (cmd.includes('futbol') || cmd.includes('süper lig') || cmd.includes('maç')) {
+                navigateTo('futbol', 'Futbol ve Süper Lig coşkusu burada!');
+            } else if (cmd.includes('tarih') || cmd.includes('antik') || cmd.includes('kale')) {
+                navigateTo('tarih', 'Tarih ve antik kentler bölümüne geldik!');
+            } else if (cmd.includes('doğa') || cmd.includes('kapadokya') || cmd.includes('gez')) {
+                navigateTo('doga', 'Türkiye Doğa harikaları bölümü!');
+            } else if (cmd.includes('yemek') || cmd.includes('kebap') || cmd.includes('tatlı')) {
+                navigateTo('yemek', 'Nefis Türk yemekleri bölümü!');
+            } else if (cmd.includes('başa') || cmd.includes('yukarı') || cmd.includes('ana sayfa')) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                speakText('Sayfanın en başına döndük!');
+            } else {
+                speakText("Söylediğin konuyu tam
