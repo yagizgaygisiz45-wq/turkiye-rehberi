@@ -39,7 +39,7 @@
         }
 
         .hero h1 {
-            font-size: 3.2rem;
+            font-size: 3rem;
             font-weight: 800;
             background: linear-gradient(135deg, #ffffff 0%, #f43f5e 50%, #3b82f6 100%);
             background-size: 200% auto;
@@ -48,7 +48,6 @@
             animation: textGradient 4s ease infinite;
             margin-bottom: 1rem;
             line-height: 1.1;
-            text-shadow: 0 0 30px rgba(244, 63, 94, 0.3);
         }
 
         .hero p {
@@ -75,7 +74,6 @@
             color: #fff;
             outline: none;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
 
         .search-box input:focus {
@@ -91,7 +89,7 @@
             color: #f43f5e;
         }
 
-        /* Bilgi Kartı Efekti */
+        /* Bilgi Kartı */
         .fact-card {
             background: rgba(30, 41, 59, 0.5);
             border: 1px solid rgba(244, 63, 94, 0.4);
@@ -101,7 +99,6 @@
             margin: -2rem auto 2rem auto;
             text-align: center;
             backdrop-filter: blur(12px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             position: relative;
             z-index: 10;
         }
@@ -115,11 +112,6 @@
             margin-top: 10px;
             cursor: pointer;
             font-weight: 600;
-            transition: transform 0.2s;
-        }
-
-        .fact-card button:hover {
-            transform: scale(1.05);
         }
 
         /* AI Asistan Maskotu ve Ses Alıcısı */
@@ -164,7 +156,7 @@
         .voice-control-box {
             background: rgba(244, 63, 94, 0.15);
             border: 1px dashed #f43f5e;
-            padding: 8px;
+            padding: 10px;
             border-radius: 12px;
             text-align: center;
             margin-top: 5px;
@@ -174,12 +166,12 @@
             background: #f43f5e;
             border: none;
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.1rem;
-            margin-top: 5px;
+            font-size: 1.2rem;
+            margin-top: 8px;
             box-shadow: 0 0 15px rgba(244, 63, 94, 0.6);
             transition: all 0.3s;
         }
@@ -221,12 +213,6 @@
             font-size: 0.75rem;
             cursor: pointer;
             text-align: center;
-            transition: all 0.2s;
-        }
-
-        .assistant-btn:hover {
-            background: #f43f5e;
-            border-color: #f43f5e;
         }
 
         /* İçerik Grid / Kartlar */
@@ -248,25 +234,19 @@
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
+            transition: all 0.4s ease;
         }
 
         .card:hover {
-            transform: translateY(-10px) scale(1.02);
+            transform: translateY(-8px);
             border-color: #f43f5e;
             box-shadow: 0 20px 40px rgba(244, 63, 94, 0.25);
         }
 
         .card img {
             width: 100%;
-            height: 210px;
+            height: 200px;
             object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .card:hover img {
-            transform: scale(1.08);
         }
 
         .card-body {
@@ -312,11 +292,11 @@
     <div class="assistant-container">
         <div class="assistant-bubble" id="assistantBubble">
             <strong>Merhaba! 🚀</strong>
-            <p id="assistantStatus">Sana nasıl yardımcı olabilirim? Aşağıdaki mikrofona basıp konuşabilirsin!</p>
+            <p id="assistantStatus">Aşağıdaki pembe mikrofona bas ve örneğin "Arabalar" veya "Kütahya" de!</p>
             
             <!-- Ses Dinleme Alanı -->
             <div class="voice-control-box">
-                <span id="voiceText" style="font-size:0.75rem; color:#f43f5e; display:block;">"Beni arabalara götür" de...</span>
+                <span id="voiceText" style="font-size:0.8rem; color:#f43f5e; font-weight:bold; display:block;">Mikrofona Bas ve Konuş</span>
                 <button class="mic-btn" id="micBtn" onclick="startListening()"><i class="fa-solid fa-microphone"></i></button>
             </div>
 
@@ -337,10 +317,10 @@
     <!-- Hero Bölümü -->
     <div class="hero">
         <h1>TÜRKİYE MEGA KEŞİF PORTALI</h1>
-        <p>Kütahya çinilerinden efsane otomobillere, futbol heyecanından tarihi kentlerimize ve eşsiz mutfağımıza kadar her şeyi sesli asistanınla keşfet!</p>
+        <p>Kütahya çinilerinden efsane otomobillere, futbol heyecanından tarihi kentlerimize kadar her şeyi keşfet!</p>
         <div class="search-box">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" placeholder="Konu ara (Örn: Arabalar, Kütahya, Tarih...)" onkeyup="filterCards()">
+            <input type="text" id="searchInput" placeholder="Konu ara (Örn: Arabalar, Kütahya...)" onkeyup="filterCards()">
         </div>
     </div>
 
@@ -354,7 +334,6 @@
     <div class="container">
         <div class="grid" id="cardGrid">
             
-            <!-- Kütahya Kartı -->
             <div class="card" id="kutahya">
                 <img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=800&q=80" alt="Kütahya">
                 <div class="card-body">
@@ -363,7 +342,6 @@
                 </div>
             </div>
 
-            <!-- Arabalar Kartı -->
             <div class="card" id="arabalar">
                 <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80" alt="Arabalar">
                 <div class="card-body">
@@ -372,7 +350,6 @@
                 </div>
             </div>
 
-            <!-- Futbol Kartı -->
             <div class="card" id="futbol">
                 <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80" alt="Futbol">
                 <div class="card-body">
@@ -381,7 +358,6 @@
                 </div>
             </div>
 
-            <!-- Tarih & Antik Kentler -->
             <div class="card" id="tarih">
                 <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80" alt="Tarih">
                 <div class="card-body">
@@ -390,7 +366,6 @@
                 </div>
             </div>
 
-            <!-- Doğa & Turizm -->
             <div class="card" id="doga">
                 <img src="https://images.unsplash.com/photo-1608822806947-2384a896d84f?auto=format&fit=crop&w=800&q=80" alt="Doğa">
                 <div class="card-body">
@@ -399,7 +374,6 @@
                 </div>
             </div>
 
-            <!-- Yemekler Kartı -->
             <div class="card" id="yemek">
                 <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Yemekler">
                 <div class="card-body">
@@ -462,25 +436,31 @@
             }
         }
 
-        // SES TANIMA / DİNLEME MOTORU (Speech Recognition)
+        // SES TANIMA / DİNLEME MOTORU (Garanti İzinli & Düzeltilmiş)
         const micBtn = document.getElementById('micBtn');
         const voiceText = document.getElementById('voiceText');
+        let recognition = null;
 
         function startListening() {
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
             if (!SpeechRecognition) {
-                alert("Maalesef tarayıcınız ses tanıma özelliğini desteklemiyor. Chrome veya Edge kullanabilirsiniz.");
+                alert("Maalesef telefonunuzun veya tarayıcınızın ses tanıma desteği yok. Chrome tarayıcısını kullanabilirsiniz.");
                 return;
             }
 
-            const recognition = new SpeechRecognition();
+            if (recognition) {
+                try { recognition.stop(); } catch(e){}
+            }
+
+            recognition = new SpeechRecognition();
             recognition.lang = 'tr-TR';
+            recognition.continuous = false;
             recognition.interimResults = false;
 
             recognition.onstart = function() {
                 micBtn.classList.add('listening');
-                voiceText.innerText = "Seni dinliyorum, konuş...";
+                voiceText.innerText = "Dinleniyor... Konuşun!";
             };
 
             recognition.onspeechend = function() {
@@ -489,6 +469,7 @@
             };
 
             recognition.onresult = function(event) {
+                micBtn.classList.remove('listening');
                 const command = event.results[0][0].transcript.toLowerCase();
                 voiceText.innerText = 'Algılandı: "' + command + '"';
                 
@@ -497,22 +478,31 @@
 
             recognition.onerror = function(event) {
                 micBtn.classList.remove('listening');
-                voiceText.innerText = "Seni anlayamadım, tekrar dene.";
+                if (event.error === 'not-allowed') {
+                    alert("Lütfen tarayıcınızın mikrofon iznine 'İzin Ver' deyin.");
+                    voiceText.innerText = "Mikrofon izni engellendi!";
+                } else {
+                    voiceText.innerText = "Ses anlaşılamadı. Tekrar deneyin.";
+                }
             };
 
-            recognition.start();
+            try {
+                recognition.start();
+            } catch (err) {
+                console.log(err);
+            }
         }
 
-        // Sesli Komutları Analiz Etme ve Sayfada Yönlendirme
+        // Sesli Komutları Analiz Etme
         function processVoiceCommand(cmd) {
             if (cmd.includes('kütahya') || cmd.includes('çini')) {
-                navigateTo('kutahya', 'Seni Kütahya çinisi bölümüne götürüyorum!');
+                navigateTo('kutahya', 'Kütahya çini bölümüne gidiyoruz!');
             } else if (cmd.includes('araba') || cmd.includes('otomobil') || cmd.includes('togg')) {
-                navigateTo('arabalar', 'İşte efsane ve yerli arabalar bölümü!');
+                navigateTo('arabalar', 'İşte yerli ve efsane arabalar bölümü!');
             } else if (cmd.includes('futbol') || cmd.includes('süper lig') || cmd.includes('maç')) {
                 navigateTo('futbol', 'Futbol ve Süper Lig coşkusu burada!');
             } else if (cmd.includes('tarih') || cmd.includes('antik') || cmd.includes('kale')) {
-                navigateTo('tarih', 'Tarih ve antik kentler bölümüne geldik!');
+                navigateTo('tarih', 'Tarih ve antik kentler bölümü!');
             } else if (cmd.includes('doğa') || cmd.includes('kapadokya') || cmd.includes('gez')) {
                 navigateTo('doga', 'Türkiye Doğa harikaları bölümü!');
             } else if (cmd.includes('yemek') || cmd.includes('kebap') || cmd.includes('tatlı')) {
@@ -521,4 +511,13 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 speakText('Sayfanın en başına döndük!');
             } else {
-                speakText("Söylediğin konuyu tam
+                speakText("Dediklerini tam anlayamadım, ama menüden seçim yapabilirsin.");
+            }
+        }
+
+        // Asistan Menüsü Aç/Kapa
+        const character = document.getElementById('assistantCharacter');
+        const bubble = document.getElementById('assistantBubble');
+
+        character.addEventListener('click', function() {
+            if (bubble.style.display =
