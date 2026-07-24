@@ -346,10 +346,18 @@
             text-align: center;
             padding: 3rem 1.5rem;
             background: #020617;
-            color: #4b5563;
+            color: #9ca3af;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             margin-top: 5rem;
-            font-size: 0.85rem;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        footer .custom-thanks {
+            color: #f43f5e;
+            font-weight: 700;
+            margin-top: 0.5rem;
+            font-size: 1rem;
         }
 
         @media (max-width: 768px) {
@@ -363,14 +371,14 @@
 
     <!-- Hero -->
     <div class="hero">
-        <span class="hero-badge"><i class="fa-solid fa-star"></i> INTERAKTİF TÜRKİYE PORTALI</span>
+        <span class="hero-badge"><i class="fa-solid fa-star"></i> İNTERAKTİF TÜRKİYE PORTALI</span>
         <h1>TÜRKİYE MEGA KEŞİF PORTALI</h1>
-        <p>Süper Lig coşkusundan yerli icatlara, zengin Türk mutfağından marangozluk zanaatına ve tarihi güzelliklere kadar her şey bu portalda!</p>
+        <p>Kütahya'nın çini sanatından Süper Lig coşkusuna, yerli icatlardan zengin Türk mutfağına ve tarihi şehirlere kadar her şey bu portalda!</p>
         
         <!-- Canlı Arama Kutusu -->
         <div class="search-box">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" placeholder="Sitede konu ara (Örn: Futbol, TOGG, Kebap...)" onkeyup="filterCards()">
+            <input type="text" id="searchInput" placeholder="Sitede konu veya şehir ara (Örn: Kütahya, Futbol, Kebap...)" onkeyup="filterCards()">
         </div>
     </div>
 
@@ -383,24 +391,57 @@
 
     <!-- Hızlı Gezinme Menüsü -->
     <nav>
+        <a href="#kutahya"><i class="fa-solid fa-gem"></i> Kütahya</a>
+        <a href="#sehirler"><i class="fa-solid fa-city"></i> Önemli Şehirler</a>
         <a href="#futbol"><i class="fa-solid fa-futbol"></i> Süper Lig & Futbol</a>
         <a href="#icatlar"><i class="fa-solid fa-rocket"></i> Yerli İcatlar & Teknoloji</a>
         <a href="#kizkulesi"><i class="fa-solid fa-landmark"></i> Kız Kulesi & Simgeler</a>
         <a href="#yemek"><i class="fa-solid fa-utensils"></i> Türk Mutfağı</a>
         <a href="#yazilim"><i class="fa-solid fa-code"></i> Oyun & Yazılım</a>
         <a href="#marangozluk"><i class="fa-solid fa-hammer"></i> Marangozluk Zanaatı</a>
-        <a href="#gezi"><i class="fa-solid fa-compass"></i> Gezi & Rotalar</a>
     </nav>
 
     <div class="container">
         <div class="section-header">
-            <h2>Türkiye'nin Tüm Renkleri & Değerleri</h2>
+            <h2>Türkiye'nin Şehirleri, Kültürü & Değerleri</h2>
             <p>Hangi konuyu merak ediyorsan üzerine tıkla ve keşfet</p>
         </div>
 
         <div class="grid" id="cardGrid">
 
-            <!-- 1. TRENDYOL SÜPER LİG & FUTBOL KÜLTÜRÜ -->
+            <!-- 1. KÜTAHYAÖZEL KARTI -->
+            <div id="kutahya" class="card">
+                <div class="card-img-wrapper">
+                    <span class="tag">ÇİNİ & TARİH</span>
+                    <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=1000&q=80" alt="Kütahya Çinisi">
+                </div>
+                <div class="card-body">
+                    <h3><i class="fa-solid fa-gem"></i> Kütahya — Çini ve Seramiğin Başkenti</h3>
+                    <p>Ege Bölgesi'nin tarihi kenti Kütahya; dünyaca ünlü muhteşem çini sanatı, Aizanoi Antik Kenti, tarihi Kütahya Kalesi ve sıcak kaplıcalarıyla Anadolu kültürünün en değerli hazinelerinden biridir.</p>
+                    <div class="card-footer">
+                        <span><i class="fa-solid fa-map-pin"></i> Kütahya, Türkiye</span>
+                        <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. TÜRKİYE'NİN ÖNEMLİ ŞEHİRLERİ -->
+            <div id="sehirler" class="card">
+                <div class="card-img-wrapper">
+                    <span class="tag">ŞEHİRLERİMİZ</span>
+                    <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1000&q=80" alt="Türkiye Şehirleri">
+                </div>
+                <div class="card-body">
+                    <h3><i class="fa-solid fa-city"></i> Türkiye'nin İkonik Şehirleri</h3>
+                    <p>Başkent Ankara'nın tarihi atmosferi, İzmir'in Kordon boyu, Bursa'nın tarihi dokusu, Antalya'nın turkuaz sahilleri ve Trabzon'un yeşil yaylaları ile Türkiye'nin 81 ili benzersiz güzelliklere sahiptir.</p>
+                    <div class="card-footer">
+                        <span><i class="fa-solid fa-compass"></i> Ankara, İzmir, Bursa, Antalya...</span>
+                        <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. TRENDYOL SÜPER LİG & FUTBOL KÜLTÜRÜ -->
             <div id="futbol" class="card">
                 <div class="card-img-wrapper">
                     <span class="tag">SPOR KÜLTÜRÜ</span>
@@ -416,7 +457,7 @@
                 </div>
             </div>
 
-            <!-- 2. YERLİ İCATLAR VE MİLLİ TEKNOLOJİ -->
+            <!-- 4. YERLİ İCATLAR VE MİLLİ TEKNOLOJİ -->
             <div id="icatlar" class="card">
                 <div class="card-img-wrapper">
                     <span class="tag">MİLLİ TEKNOLOJİ</span>
@@ -432,7 +473,7 @@
                 </div>
             </div>
 
-            <!-- 3. KIZ KULESİ VE İSTANBUL SİMGELERİ -->
+            <!-- 5. KIZ KULESİ VE İSTANBUL SİMGELERİ -->
             <div id="kizkulesi" class="card">
                 <div class="card-img-wrapper">
                     <span class="tag">TARİHİ MİRAS</span>
@@ -448,7 +489,7 @@
                 </div>
             </div>
 
-            <!-- 4. TÜRK MUTFAĞI VE GASTRONOMİ -->
+            <!-- 6. TÜRK MUTFAĞI VE GASTRONOMİ -->
             <div id="yemek" class="card">
                 <div class="card-img-wrapper">
                     <span class="tag">GASTRONOMİ</span>
@@ -464,7 +505,7 @@
                 </div>
             </div>
 
-            <!-- 5. YERLİ OYUN & YAZILIM SEKTÖRÜ -->
+            <!-- 7. YERLİ OYUN & YAZILIM SEKTÖRÜ -->
             <div id="yazilim" class="card">
                 <div class="card-img-wrapper">
                     <span class="tag">YAZILIM & GAMING</span>
@@ -480,51 +521,8 @@
                 </div>
             </div>
 
-            <!-- 6. AHŞAP ZANAATI VE MARANGOZLUK -->
+            <!-- 8. AHŞAP ZANAATI VE MARANGOZLUK -->
             <div id="marangozluk" class="card">
                 <div class="card-img-wrapper">
                     <span class="tag">EL ZANAATLARI</span>
-                    <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1000&q=80" alt="Marangozluk Zanaatı">
-                </div>
-                <div class="card-body">
-                    <h3><i class="fa-solid fa-hammer"></i> Ahşap & Marangozluk Sanatı</h3>
-                    <p>Anadolu'da yüzyıllardır süregelen "Kündekari" geçme ahşap tekniği, el yapımı masif mobilyalar ve ahşap oymacılığı zanaatın sabırla ve ustalıkla birleştiği harika bir gelenektir.</p>
-                    <div class="card-footer">
-                        <span><i class="fa-solid fa-tree"></i> Ahşap Oymacılığı</span>
-                        <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 7. GEZİ ROTALARI & DOĞA GÜZELLİKLERİ -->
-            <div id="gezi" class="card">
-                <div class="card-img-wrapper">
-                    <span class="tag">GEZİ & DOĞA</span>
-                    <img src="https://images.unsplash.com/photo-1641128324972-af3212f0f6bd?auto=format&fit=crop&w=1000&q=80" alt="Kapadokya Balonlar">
-                </div>
-                <div class="card-body">
-                    <h3><i class="fa-solid fa-compass"></i> Doğa Harikaları & Tarihi Rotalar</h3>
-                    <p>Kapadokya'nın masalsı balon uçuşları, Pamukkale travertenleri, Karadeniz yaylaları ve Efes Antik Kenti ile Türkiye doğa sevenler ve gezginler için tükenmez bir hazinedir.</p>
-                    <div class="card-footer">
-                        <span><i class="fa-solid fa-map"></i> Kapadokya, Efes & Yaylalar</span>
-                        <span>İncele <i class="fa-solid fa-arrow-right"></i></span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Yukarı Çık Butonu -->
-    <a href="#" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
-
-    <footer>
-        <p>&copy; 2026 Türkiye Mega Keşif & Kültür Portalı — Tüm Hakları Saklıdır.</p>
-    </footer>
-
-    <!-- JavaScript Dinamik Özellikler -->
-    <script>
-        // Rastgele Bilgiler Listesi
-        const facts = [
-            "Dünyada en çok çay tüketen ülke açık ara farkla Türkiye'dir!",
-            "Dünyanın en eski tapınak kompleksi kabul edilen Göbeklitepe, Şanlıurfa'dadır."
+      
